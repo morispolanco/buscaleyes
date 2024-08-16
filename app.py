@@ -9,21 +9,30 @@ api_key = st.secrets["perplexity"]["api_key"]
 
 # Función para hacer la solicitud a la API
 def consultar_perplexity(pregunta):
-    url = "https://api.perplexity.ai/v1/completions"  # Verifica que esta URL sea correcta
+    url = "https://api.perplexity.ai/chat/completions"  # Updated endpoint
     headers = {
         "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
+        "accept": "application/json",
+        "content-type": "application/json"
     }
     data = {
-        "model": "perplexity-model",  # Verifica que este modelo sea correcto
-        "prompt": pregunta,
-        "max_tokens": 150
+        "model": "llama-3.1-sonar-small-128k-online",  # Updated model
+        "messages": [
+            {
+                "role": "system",
+                "content": "Be precise and concise."
+            },
+            {
+                "role": "user",
+                "content": pregunta
+            }
+        ]
     }
 
     try:
         response = requests.post(url, headers=headers, json=data)
         response.raise_for_status()  # Levantará un error si la respuesta no es 2xx
-        return response.json()["choices"][0]["text"]
+        return response.json()["choices"][0]["message"]["content"]
     except requests.exceptions.HTTPError as errh:
         return f"HTTP Error: {errh}"
     except requests.exceptions.ConnectionError as errc:
