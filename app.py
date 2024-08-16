@@ -20,7 +20,7 @@ def consultar_perplexity(pregunta):
         "messages": [
             {
                 "role": "system",
-                "content": "Actúa como un experto legal y responde solo basándote en la legislación y jurisprudencia de Guatemala. No utilices leyes de México u otros países. Sé preciso y conciso."
+                "content": "Actúa como un experto legal y responde solo basándote en la legislación y jurisprudencia de Guatemala. No utilices leyes de México u otros países."
             },
             {
                 "role": "user",
