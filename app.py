@@ -1,19 +1,3 @@
-Para crear una aplicación de Streamlit que utilice la API de Perplexity para responder preguntas sobre la legislación vigente de Guatemala y la jurisprudencia de Guatemala, primero necesitas obtener una clave de API de Perplexity. Luego, puedes almacenar esta clave en los secretos de Streamlit para mantenerla segura.
-
-A continuación, te proporciono un ejemplo de código para una aplicación de Streamlit que hace esto:
-
-1. **Guardar la clave de API en los secretos de Streamlit**:
-   - Crea un archivo `.streamlit/secrets.toml` en tu proyecto.
-   - Añade la clave de API de Perplexity en este archivo:
-
-     ```toml
-     [perplexity]
-     api_key = "tu_clave_de_api_de_perplexity"
-     ```
-
-2. **Código de la aplicación de Streamlit**:
-
-   ```python
    import streamlit as st
    import requests
 
