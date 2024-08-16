@@ -9,13 +9,13 @@ api_key = st.secrets["perplexity"]["api_key"]
 
 # Función para hacer la solicitud a la API de Perplexity
 def consultar_perplexity(pregunta):
-    url = "https://api.perplexity.ai/v1/completions"
+    url = "https://api.perplexity.ai/v1/completions"  # Reemplaza con la URL correcta de la API
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
     data = {
-        "model": "perplexity-model",
+        "model": "perplexity-model",  # Reemplaza con el modelo correcto si es necesario
         "prompt": pregunta,
         "max_tokens": 150
     }
